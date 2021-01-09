@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajdin Husic</title>
+</head>
+
+<body>
+<style>
+    * {
+        box-sizing: border-box;
+        padding: 0;
+        margin: 0;
+    }
+
+    .photo {
+        width: max(20vw, 200px);
+        display: inline-block;
+    }
+
+    .photo-dark {
+        display: none;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        .photo {
+            display: none;
+        }
+
+        .photo-dark {
+            -webkit-filter: invert(100%); /* safari 6.0 - 9.0 */
+            filter: invert(100%);
+            display: inline-block;
+            width: max(20vw, 200px);
+        }
+
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+    }
+
+    body {
+        font-family:
+                SFMono-Regular,
+                Menlo,
+                Monaco,
+                Consolas,
+                "Liberation Mono",
+                "Courier New",
+                monospace;
+        text-align: center;
+        padding: 32px;
+    }
+
+    h1 {
+        font-size: max(3vw, 24px);
+    }
+
+    h2 {
+        font-size: max(2vw, 20px);
+    }
+
+    h1,
+    h2 {
+        margin-bottom: 24px;
+    }
+
+    ul {
+        margin-bottom: 40px;
+        list-style: none;
+    }
+
+    li {
+        margin-bottom: 8px;
+    }
+
+    a {
+        color: #26c799;
+    }
+</style>
+<img src="ajdin-avatar%20.svg" class="photo">
+<img src="ajdin-avatar%20.svg" class="photo-dark">
+<h1>Ajdin Husic</h1>
+<ul>
+    <li>Unmarried</li>
+    <li>Developer at ProCC</li>
+</ul>
+<h2>Projects</h2>
+<ul>
+    <li><a href="https://github.com/AjdinHusic/arabic-madinah" target="_blank" rel="noopener">Learn Arabic</a></li>
+</ul>
+<h2>Contact</h2>
+<ul>
+    <li><a href="https://github.com/AjdinHusic" target="_blank" rel="noopener">GitHub</a></li>
+    <li><a href="https://www.linkedin.com/in/ajdin-husic-590b9b48/" target="_blank" rel="noopener">LinkedIn</a></li>
+    <li><a href="#ZG9taW5pY0B2b25rLmlv" class="m" target="_blank" rel="noopener">E-mail</a></li>
+</ul>
+
+<script>
+    document.querySelector('.m').onclick = function (e) {
+        e.preventDefault();
+        window.requestAnimationFrame(() => {
+            location.href = 'mailto:' + atob(this.hash.slice(1))
+        });
+    }
+</script>
+</body>
+
+</html>
