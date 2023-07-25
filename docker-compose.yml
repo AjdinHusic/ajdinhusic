@@ -8,4 +8,5 @@ services:
       - "traefik.enable=true"
       - "traefik.http.routers.ajdinhusic.entrypoints=web,websecure"
       - "traefik.http.routers.ajdinhusic.rule=Host(`ajdin.husic.dev`)"
+      - "traefik.http.routers.ajdinhusic.tls.certresolver=namecheap"
       - "traefik.http.routers.ajdinhusic.tls=true"
