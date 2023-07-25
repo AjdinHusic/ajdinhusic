@@ -1,0 +1,11 @@
+version: '3.7'
+services:
+  ajdinhusic:
+    build: .
+    container_name: ajdinhusic
+    restart: always
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.ajdinhusic.entrypoints=web,websecure"
+      - "traefik.http.routers.ajdinhusic.rule=Host(`ajdin.husic.dev`)"
+      - "traefik.http.routers.ajdinhusic.tls=true"
