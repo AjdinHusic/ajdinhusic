@@ -4,6 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="ajdin-avatar .svg">
+    <link rel="stylesheet" href="animation.css">
     <title>Ajdin Husic</title>
 </head>
 
@@ -81,15 +83,15 @@
         color: #26c799;
     }
 
-    .gallery {
+    /* .gallery {
         display: inline-block;
-    }
+    } */
 
     .gallery img {
         border-radius: 8px;
         cursor: pointer;
         width: min(600px, 50vw);
-        margin: auto;
+        /* margin: auto; */
     }
 
     .gallery:hover {
@@ -102,21 +104,13 @@
         font-size: x-large;
     }
 
-    @keyframes scroll {
-        0% { transform: translateX(0); }
-        100% { transform: translateX(calc(min(600px, 50vw) * -0.5))}
-    }
-
-    .slider {
-        width: 100vw;
-        animation: scroll 10s linear infinite;
-    }
 </style>
 <img src="ajdin-avatar%20.svg" class="photo">
 <img src="ajdin-avatar%20.svg" class="photo-dark">
 <h1>Ajdin Husic</h1>
 <ul>
     <li>Software Developer</li>
+    <li>Owner of Husic Development</li>
 </ul>
 <h2>Contact</h2>
 <ul>
@@ -124,17 +118,16 @@
     <li><a href="https://www.linkedin.com/in/ajdin-husic-590b9b48/" target="_blank" rel="noopener">LinkedIn</a></li>
     <li><a href="#YWpkaW4uaHVzaWMuZGV2QGdtYWlsLmNvbQ==" class="m" target="_blank" rel="noopener">E-mail</a></li>
 </ul>
-<h2>Skills</h2>
-<div class="slider">
-    <div class="gallery">
+<div class="animated-container">
+    <div class="gallery animated-item">
         <img src="./swagger.png">
         <span>Api Design</span>
     </div>
-    <div class="gallery">
+    <div class="gallery animated-item">
         <img src="./database.png">
         <span>Database Architecture</span>
     </div>
-    <div class="gallery">
+    <div class="gallery animated-item">
         <img src="./ui.png">
         <span>User Interface</span>
     </div>

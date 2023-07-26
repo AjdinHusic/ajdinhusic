@@ -1,0 +1,125 @@
+$pi: 3.14159265359;
+$_precision: 20;
+
+@function pow($base, $exp) {
+  $value: $base;
+  @if $exp > 1 {
+    @for $i from 2 through $exp {
+      $value: $value * $base;
+    }
+  }
+  @if $exp < 1{
+    @for $i from 0 through -$exp {
+      $value: $value / $base;
+    }
+  }
+  @return $value;
+}
+
+@function fact($num) {
+  $fact: 1;
+  @if $num > 0{
+    @for $i from 1 through $num {
+      $fact: $fact * $i;
+    }
+  }
+  @return $fact;
+}
+
+@function _to_unitless_rad($angle) {
+  @if unit($angle) == "deg" {
+    $angle: $angle / 180deg * $pi;
+  }
+  @if unit($angle) == "rad" {
+    $angle: $angle / 1rad;
+  }
+  @return $angle;
+}
+
+@function sin($angle){
+  $a: _to_unitless_rad($angle);
+  $sin: $a;
+  @for $n from 1 through $_precision {
+    $sin: $sin + (pow(-1, $n) / fact(2 * $n + 1) ) * pow($a, (2 * $n + 1));
+  }
+  @return $sin;
+}
+
+@function cos($angle){
+  $a: _to_unitless_rad($angle);
+  $cos: 1;
+  @for $n from 1 through $_precision {
+    $cos: $cos + ( pow(-1,$n) / fact(2*$n) ) * pow($a,2*$n);
+  }
+  @return $cos;
+}
+
+$total-items: 3;  // Number of items to rotate
+$step: 360deg / $total-items;  // Amount to offset each item's starting point
+$radius: 300px;
+$width: 600px;
+$height: 400px;
+
+
+.animated-container {
+    position: relative;
+    margin-top: $radius + $height/2;
+}
+
+.animated-item {
+    // Apply a different animation to each item
+    @for $i from 1 through $total-items {
+      &:nth-child(#{$i}) {
+        position: absolute;
+
+        width: $width;
+        height: $height;
+        top: calc(50% - #{$height/2});
+        left: calc(50% - #{$width/2});
+        //transform: translate(-50%, -50%);  // Centers the item
+
+        animation: circular-rotation-#{$i} 30s linear infinite;
+      }
+    }
+  }
+
+// Create a keyframes animation for each item
+@for $n from 1 through $total-items {
+  $start-angle: $step * ($n - 1);
+
+  // Insert pre-calculated `translate()` values for each step of the animation
+  @keyframes circular-rotation-#{$n} {
+    // ... keyframes here ...
+    @for $i from 0 through 100 {
+        $angle: ($i * 3.6deg) + $start-angle;
+        $normalized-angle: ($angle / 360deg - floor($angle / 360deg)) * 360deg;
+        #{$i * 1%} {
+            @if $normalized-angle >= 0deg and $normalized-angle <= 160deg {
+                transform: translate(
+                  #{cos($normalized-angle) * $radius}, 
+                  #{sin($normalized-angle) * $radius}
+                ) scale(1.1);
+                z-index: 2;
+              } @else {
+                transform: translate(
+                  #{cos($normalized-angle) * $radius}, 
+                  #{sin($normalized-angle) * $radius}
+                );
+                z-index: 1;
+              }
+        }
+      }
+  }
+}
+
+// @keyframes circular-rotation {
+//     @for $i from 0 through 100 {
+//       #{$i * 1%} {
+//         transform: translate(
+//           #{cos($i * 3.6deg) * 200px},
+//           #{sin($i * 3.6deg) * 200px}
+//         );
+//       }
+//     }
+//   }
+  

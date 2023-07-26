@@ -1,0 +1,22 @@
+{
+  "name": "ajdin.husic.dev",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "sass": "sass animation.scss animation.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AjdinHusic/ajdinhusic.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AjdinHusic/ajdinhusic/issues"
+  },
+  "homepage": "https://github.com/AjdinHusic/ajdinhusic#readme",
+  "devDependencies": {
+    "sass": "^1.64.1"
+  }
+}
