@@ -1,22 +1,19 @@
 {
   "name": "ajdin.husic.dev",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "sass": "sass animation.scss animation.css"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/AjdinHusic/ajdinhusic.git"
-  },
-  "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/AjdinHusic/ajdinhusic/issues"
-  },
-  "homepage": "https://github.com/AjdinHusic/ajdinhusic#readme",
   "devDependencies": {
-    "sass": "^1.64.1"
+    "typescript": "~5.8.3",
+    "vite": "^7.1.2"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.12",
+    "tailwindcss": "^4.1.12"
   }
 }
