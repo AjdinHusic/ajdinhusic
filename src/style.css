@@ -100,3 +100,109 @@ html {
 .backdrop-blur-sm {
   backdrop-filter: blur(4px);
 }
+
+/* Paper-style testimonial cards */
+.paper-card {
+  position: relative;
+  background-color: #ffffff;
+  border: 1px solid #e5e7eb; /* gray-200 */
+  border-radius: 12px;
+  box-shadow: 0 1px 0 rgba(0,0,0,0.02) inset, 0 12px 24px rgba(0,0,0,0.08);
+}
+
+/* Subtle paper texture using layered gradients */
+.paper-card {
+  background-image:
+    radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px),
+    radial-gradient(rgba(0,0,0,0.02) 1px, transparent 1px);
+  background-position: 0 0, 8px 8px;
+  background-size: 16px 16px;
+}
+
+/* Folded corner */
+.paper-card::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 34px;
+  height: 34px;
+  background: linear-gradient(135deg, #ffffff 0%, #f3f4f6 100%);
+  clip-path: polygon(0 0, 100% 0, 0 100%);
+  border-left: 1px solid #e5e7eb;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+/* Tape accent */
+.paper-tape {
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%) rotate(-2deg);
+  width: 84px;
+  height: 18px;
+  background: rgba(250, 204, 21, 0.6); /* amber-400 with opacity */
+  box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+  border-radius: 2px;
+}
+
+/* Decorative opening quote */
+.paper-quote {
+  position: relative;
+  padding-left: 2.25rem; /* space for quote mark */
+}
+.paper-quote::before {
+  content: "\201C"; /* “ */
+  position: absolute;
+  left: 0;
+  top: -10px;
+  font-size: 3rem;
+  line-height: 1;
+  color: #e5e7eb; /* gray-200 */
+}
+
+/* Author line */
+.paper-author {
+  margin-top: 1rem;
+  font-weight: 600;
+  color: #111827; /* gray-900 */
+}
+.paper-role {
+  color: #4b5563; /* gray-600 */
+}
+
+/* Dark mode adjustments (class strategy) */
+.dark .paper-card {
+  background-color: #1f2937; /* gray-800 */
+  border-color: #374151; /* gray-700 */
+  box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset, 0 12px 24px rgba(0,0,0,0.4);
+}
+.dark .paper-card::after {
+  background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+  border-left-color: #374151;
+  border-bottom-color: #374151;
+}
+.dark .paper-quote::before {
+  color: #374151; /* gray-700 */
+}
+.dark .paper-author { color: #e5e7eb; }
+.dark .paper-role { color: #9ca3af; }
+
+/* Dark mode adjustments (media strategy) */
+@media (prefers-color-scheme: dark) {
+  .paper-card {
+    background-color: #1f2937; /* gray-800 */
+    border-color: #374151; /* gray-700 */
+    box-shadow: 0 1px 0 rgba(255,255,255,0.03) inset, 0 12px 24px rgba(0,0,0,0.4);
+  }
+  .paper-card::after {
+    background: linear-gradient(135deg, #1f2937 0%, #111827 100%);
+    border-left-color: #374151;
+    border-bottom-color: #374151;
+  }
+  .paper-quote::before {
+    color: #374151; /* gray-700 */
+  }
+  .paper-author { color: #e5e7eb; }
+  .paper-role { color: #9ca3af; }
+}

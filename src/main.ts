@@ -7,15 +7,15 @@ mobileMenuBtn?.addEventListener('click', () => {
 });
 
 // Portfolio filtering
-const portfolioFilters = document.querySelectorAll('.portfolio-filter');
-const portfolioItems = document.querySelectorAll('.portfolio-item');
+const portfolioFilters = document.querySelectorAll<HTMLButtonElement>('.portfolio-filter');
+const portfolioItems = document.querySelectorAll<HTMLElement>('.portfolio-item');
 
-portfolioFilters.forEach(filter => {
+portfolioFilters.forEach((filter) => {
   filter.addEventListener('click', () => {
     const filterValue = filter.getAttribute('data-filter');
 
     // Update active filter button
-    portfolioFilters.forEach(f => {
+    portfolioFilters.forEach((f) => {
       f.classList.remove('active', 'bg-emerald-600', 'text-white');
       f.classList.add('bg-white', 'dark:bg-gray-800', 'text-gray-600', 'dark:text-gray-300');
     });
@@ -24,7 +24,7 @@ portfolioFilters.forEach(filter => {
     filter.classList.remove('bg-white', 'dark:bg-gray-800', 'text-gray-600', 'dark:text-gray-300');
 
     // Filter portfolio items
-    portfolioItems.forEach(item => {
+    portfolioItems.forEach((item) => {
       const itemCategory = item.getAttribute('data-category');
 
       if (filterValue === 'all' || itemCategory === filterValue) {
@@ -39,25 +39,32 @@ portfolioFilters.forEach(filter => {
 
 // Image Gallery Functionality
 class ImageGallery {
-  constructor(galleryElement) {
+  private gallery: HTMLElement;
+  private images: HTMLImageElement[] = [];
+  private dots: HTMLButtonElement[] = [];
+  private currentIndex: number = 0;
+  private autoPlayInterval?: number;
+  private category: string | null = null;
+
+  constructor(galleryElement: HTMLElement) {
     this.gallery = galleryElement;
-    this.images = Array.from(galleryElement.querySelectorAll('.gallery-image'));
-    this.dots = Array.from(galleryElement.querySelectorAll('.gallery-dot'));
+    this.images = Array.from(galleryElement.querySelectorAll<HTMLImageElement>('.gallery-image'));
+    this.dots = Array.from(galleryElement.querySelectorAll<HTMLButtonElement>('.gallery-dot'));
     this.currentIndex = 0;
-    this.autoPlayInterval = null;
+    this.autoPlayInterval = undefined;
     this.category = galleryElement.getAttribute('data-category');
 
     this.init();
   }
 
-  init() {
+  private init() {
     // Set up dot navigation
-    this.dots.forEach((dot, index) => {
+    this.dots.forEach((dot: HTMLButtonElement, index: number) => {
       dot.addEventListener('click', () => this.goToSlide(index));
     });
 
     // Set up zoom functionality
-    const zoomTrigger = this.gallery.querySelector('.zoom-trigger');
+    const zoomTrigger = this.gallery.querySelector<HTMLElement>('.zoom-trigger');
     if (zoomTrigger) {
       zoomTrigger.addEventListener('click', () => this.openModal());
     }
@@ -70,7 +77,7 @@ class ImageGallery {
     this.gallery.addEventListener('mouseleave', () => this.startAutoPlay());
   }
 
-  goToSlide(index) {
+  private goToSlide(index: number) {
     if (index < 0 || index >= this.images.length) return;
 
     // Hide current image
@@ -83,30 +90,31 @@ class ImageGallery {
     this.dots[this.currentIndex].classList.add('active');
   }
 
-  nextSlide() {
+  private nextSlide() {
     const nextIndex = (this.currentIndex + 1) % this.images.length;
     this.goToSlide(nextIndex);
   }
 
-  prevSlide() {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  private prevSlide() {
     const prevIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
     this.goToSlide(prevIndex);
   }
 
-  startAutoPlay() {
-    this.autoPlayInterval = setInterval(() => {
+  private startAutoPlay() {
+    this.autoPlayInterval = window.setInterval(() => {
       this.nextSlide();
     }, 4000); // Change slide every 4 seconds
   }
 
-  pauseAutoPlay() {
-    if (this.autoPlayInterval) {
+  private pauseAutoPlay() {
+    if (this.autoPlayInterval !== undefined) {
       clearInterval(this.autoPlayInterval);
-      this.autoPlayInterval = null;
+      this.autoPlayInterval = undefined;
     }
   }
 
-  openModal() {
+  private openModal() {
     const modal = new ImageModal(this.images, this.currentIndex, this.category);
     modal.open();
   }
@@ -114,12 +122,24 @@ class ImageGallery {
 
 // Image Modal Functionality
 class ImageModal {
-  constructor(images, startIndex, category) {
+  private images: HTMLImageElement[];
+  private currentIndex: number;
+  private category: string | null;
+  private modal: HTMLElement | null;
+  private modalImage: HTMLImageElement | null;
+  private modalTitle: HTMLElement | null;
+  private modalCategory: HTMLElement | null;
+  private modalDots: HTMLElement | null;
+  private modalClose: HTMLElement | null;
+  private modalPrev: HTMLElement | null;
+  private modalNext: HTMLElement | null;
+
+  constructor(images: HTMLImageElement[], startIndex: number, category: string | null) {
     this.images = images;
     this.currentIndex = startIndex;
     this.category = category;
-    this.modal = document.getElementById('image-modal');
-    this.modalImage = document.getElementById('modal-image');
+    this.modal = document.getElementById('image-modal') as HTMLElement | null;
+    this.modalImage = document.getElementById('modal-image') as HTMLImageElement | null;
     this.modalTitle = document.getElementById('modal-title');
     this.modalCategory = document.getElementById('modal-category');
     this.modalDots = document.getElementById('modal-dots');
@@ -130,19 +150,19 @@ class ImageModal {
     this.init();
   }
 
-  init() {
+  private init() {
     // Set up event listeners
     this.modalClose?.addEventListener('click', () => this.close());
     this.modalPrev?.addEventListener('click', () => this.prevImage());
     this.modalNext?.addEventListener('click', () => this.nextImage());
 
     // Close on background click
-    this.modal?.addEventListener('click', (e) => {
+    this.modal?.addEventListener('click', (e: MouseEvent) => {
       if (e.target === this.modal) this.close();
     });
 
     // Keyboard navigation
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', (e: KeyboardEvent) => {
       if (!this.modal?.classList.contains('hidden')) {
         switch (e.key) {
           case 'Escape':
@@ -161,17 +181,17 @@ class ImageModal {
     this.createDots();
   }
 
-  createDots() {
+  private createDots() {
     if (!this.modalDots) return;
 
     this.modalDots.innerHTML = '';
-    this.images.forEach((_, index) => {
+    this.images.forEach((_, index: number) => {
       const dot = document.createElement('button');
       dot.className = `w-2 h-2 rounded-full transition-colors duration-200 ${
         index === this.currentIndex ? 'bg-emerald-600' : 'bg-gray-300 dark:bg-gray-600'
       }`;
       dot.addEventListener('click', () => this.goToImage(index));
-      this.modalDots.appendChild(dot);
+      this.modalDots!.appendChild(dot);
     });
   }
 
@@ -192,24 +212,24 @@ class ImageModal {
     document.body.style.overflow = '';
   }
 
-  goToImage(index) {
+  private goToImage(index: number) {
     if (index < 0 || index >= this.images.length) return;
     this.currentIndex = index;
     this.updateImage();
     this.updateDots();
   }
 
-  nextImage() {
+  private nextImage() {
     const nextIndex = (this.currentIndex + 1) % this.images.length;
     this.goToImage(nextIndex);
   }
 
-  prevImage() {
+  private prevImage() {
     const prevIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
     this.goToImage(prevIndex);
   }
 
-  updateImage() {
+  private updateImage() {
     const currentImage = this.images[this.currentIndex];
     if (!currentImage || !this.modalImage) return;
 
@@ -225,11 +245,12 @@ class ImageModal {
     }
   }
 
-  updateDots() {
+  private updateDots() {
     const dots = this.modalDots?.children;
     if (!dots) return;
 
-    Array.from(dots).forEach((dot, index) => {
+    Array.from(dots).forEach((dotEl, index) => {
+      const dot = dotEl as HTMLElement;
       if (index === this.currentIndex) {
         dot.className = dot.className.replace('bg-gray-300 dark:bg-gray-600', 'bg-emerald-600');
       } else {
@@ -238,35 +259,37 @@ class ImageModal {
     });
   }
 
-  getCategoryDisplayName() {
+  private getCategoryDisplayName() {
     const categoryNames = {
-      'education': 'School & Education',
-      'horticulture': 'Work & Cultivation Registration',
-      'recruitment': 'Job Matching & Recruitment',
-      'scheduling': 'Scheduling & Validation',
-      'components': 'Frontend Libraries',
-      'complete': 'Complete Solutions'
-    };
-    return categoryNames[this.category] || this.category;
+      education: 'School & Education',
+      horticulture: 'Work & Cultivation Registration',
+      recruitment: 'Job Matching & Recruitment',
+      scheduling: 'Scheduling & Validation',
+      components: 'Frontend Libraries',
+      cms: 'Content Management System',
+      complete: 'Complete Solutions'
+    } as const;
+    const key = (this.category ?? '') as keyof typeof categoryNames;
+    return categoryNames[key] ?? (this.category ?? '');
   }
 }
 
 // Initialize all image galleries
 const initImageGalleries = () => {
-  const galleries = document.querySelectorAll('.image-gallery');
-  galleries.forEach(gallery => {
+  const galleries = document.querySelectorAll<HTMLElement>('.image-gallery');
+  galleries.forEach((gallery) => {
     new ImageGallery(gallery);
   });
 };
 
 // Scroll animations
 const observeElements = () => {
-  const elements = document.querySelectorAll('.scroll-fade');
+  const elements = document.querySelectorAll<HTMLElement>('.scroll-fade');
 
   const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
+    entries.forEach((entry) => {
       if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
+        (entry.target as HTMLElement).classList.add('visible');
       }
     });
   }, {
@@ -274,16 +297,16 @@ const observeElements = () => {
     rootMargin: '0px 0px -50px 0px'
   });
 
-  elements.forEach(element => {
+  elements.forEach((element) => {
     observer.observe(element);
   });
 };
 
 // Email decoding functionality
 const setupEmailLinks = () => {
-  const emailLinks = document.querySelectorAll('.email-link');
-  emailLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
+  const emailLinks = document.querySelectorAll<HTMLAnchorElement>('.email-link');
+  emailLinks.forEach((link) => {
+    link.addEventListener('click', (e: MouseEvent) => {
       e.preventDefault();
       const hash = link.getAttribute('href')?.slice(1);
       if (hash) {
@@ -296,9 +319,9 @@ const setupEmailLinks = () => {
 
 // Smooth scroll for navigation links
 const setupSmoothScroll = () => {
-  const navLinks = document.querySelectorAll('a[href^="#"]');
-  navLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]');
+  navLinks.forEach((link) => {
+    link.addEventListener('click', (e: MouseEvent) => {
       const href = link.getAttribute('href');
       if (href && href.startsWith('#') && href.length > 1 && !href.includes('=')) {
         e.preventDefault();
@@ -347,7 +370,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Add staggered animation delays to portfolio items
   portfolioItems.forEach((item, index) => {
-    (item as HTMLElement).style.animationDelay = `${index * 0.1}s`;
+    item.style.animationDelay = `${index * 0.1}s`;
   });
 });
 

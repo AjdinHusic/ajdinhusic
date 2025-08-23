@@ -14,7 +14,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex justify-between items-center py-4">
           <div class="flex items-center space-x-3">
-            <img src="ajdin-avatar.svg" alt="Ajdin Husic" class="w-10 h-10 rounded-full">
+            <img src="ajdin-avatar.svg" alt="Ajdin Husic" class="w-10 h-10 rounded-full dark:bg-gray-500">
             <span class="font-bold text-xl text-gray-900 dark:text-white">Ajdin Husic</span>
           </div>
           <div class="hidden md:flex space-x-8">
@@ -46,7 +46,7 @@
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div class="text-center">
           <div class="animate-float mb-8">
-            <img src="ajdin-avatar.svg" alt="Ajdin Husic" class="w-32 h-32 mx-auto rounded-full shadow-2xl border-4 border-white dark:border-gray-700">
+            <img src="ajdin-avatar.svg" alt="Ajdin Husic" class="w-32 h-32 mx-auto rounded-full shadow-2xl border-4 border-white dark:border-gray-700 dark:bg-gray-600">
           </div>
           <h1 class="text-5xl md:text-7xl font-bold text-gray-900 dark:text-white mb-6 animate-slide-up">
             Ajdin <span class="text-emerald-600">Husic</span>
@@ -142,6 +142,9 @@
             <button class="portfolio-filter bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-emerald-600 hover:text-white px-6 py-3 rounded-full font-medium transition-all duration-300" data-filter="components">
               Frontend Libraries
             </button>
+            <button class="portfolio-filter bg-white dark:bg-gray-800 text-gray-600 dark:text-gray-300 hover:bg-emerald-600 hover:text-white px-6 py-3 rounded-full font-medium transition-all duration-300" data-filter="cms">
+              Content Management System
+            </button>
           </div>
         </div>
 
@@ -211,7 +214,7 @@
                 <span class="px-3 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-sm rounded-full">DevOps</span>
               </div>
               <div class="text-sm text-gray-500 dark:text-gray-400">
-                <strong>Technologies:</strong> Vue.js, Express.js, MySQL, Docker, AWS
+                <strong>Technologies:</strong> .NET, React, MySQL, Node.js, Laravel, Docker, Portainer,
               </div>
             </div>
           </div>
@@ -280,7 +283,7 @@
                 <span class="px-3 py-1 bg-pink-100 dark:bg-pink-900 text-pink-800 dark:text-pink-200 text-sm rounded-full">Workflows</span>
               </div>
               <div class="text-sm text-gray-500 dark:text-gray-400">
-                <strong>Technologies:</strong> React, NestJS, MongoDB, RabbitMQ, SendGrid
+                <strong>Technologies:</strong> React, Electron, .NET, MySQL, Hangfire, SMTP
               </div>
             </div>
           </div>
@@ -315,7 +318,40 @@
                 <span class="px-3 py-1 bg-lime-100 dark:bg-lime-900 text-lime-800 dark:text-lime-200 text-sm rounded-full">Documentation</span>
               </div>
               <div class="text-sm text-gray-500 dark:text-gray-400">
-                <strong>Technologies:</strong> TypeScript, Storybook, Rollup, Sass, NPM
+                <strong>Technologies:</strong> TypeScript, Storybook, React, Tailwind CSS, Vite, Jest
+              </div>
+            </div>
+          </div>
+
+          <!-- CMS Project -->
+          <div class="portfolio-item bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden hover:shadow-2xl transition-all duration-300 scroll-fade" data-category="cms" style="animation-delay: 0.6s;">
+            <div class="relative h-48 overflow-hidden">
+              <div class="image-gallery" data-category="cms">
+                <div class="gallery-images relative w-full h-full">
+                  <img src="/my-arabic-lesson.png" alt="Interactive Learning Platform" class="gallery-image absolute inset-0 w-full h-full object-cover transition-opacity duration-500" data-title="Interactive Arabic Learning Platform" style="opacity: 1; z-index: 2;">
+                  <img src="/my-arabic-editor.png" alt="Content Management Editor" class="gallery-image absolute inset-0 w-full h-full object-cover transition-opacity duration-500" data-title="Content Management Editor" style="opacity: 0; z-index: 1;">
+                </div>
+                <div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 cursor-pointer zoom-trigger">
+                  <svg class="w-12 h-12 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"></path>
+                  </svg>
+                </div>
+                <div class="absolute bottom-2 left-2 right-2 flex justify-center space-x-1">
+                  <button class="gallery-dot w-2 h-2 rounded-full bg-white/80 hover:bg-white transition-colors duration-200 active" data-index="0"></button>
+                  <button class="gallery-dot w-2 h-2 rounded-full bg-white/60 hover:bg-white transition-colors duration-200" data-index="1"></button>
+                </div>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Educational Interactive Learning Platform</h3>
+              <p class="text-gray-600 dark:text-gray-300 mb-4">Comprehensive content management system for creating and managing interactive educational content with multimedia support and progress tracking.</p>
+              <div class="flex flex-wrap gap-2 mb-4">
+                <span class="px-3 py-1 bg-rose-100 dark:bg-rose-900 text-rose-800 dark:text-rose-200 text-sm rounded-full">Interactive Learning</span>
+                <span class="px-3 py-1 bg-violet-100 dark:bg-violet-900 text-violet-800 dark:text-violet-200 text-sm rounded-full">Content Management</span>
+                <span class="px-3 py-1 bg-amber-100 dark:bg-amber-900 text-amber-800 dark:text-amber-200 text-sm rounded-full">Multimedia</span>
+              </div>
+              <div class="text-sm text-gray-500 dark:text-gray-400">
+                <strong>Technologies:</strong> React, MDX (Markdown + JSX), .NET, PostgresQL
               </div>
             </div>
           </div>
@@ -326,8 +362,7 @@
               <div class="image-gallery" data-category="complete">
                 <div class="gallery-images relative w-full h-full">
                   <img src="/sun-storage.png" alt="Full Stack Architecture" class="gallery-image absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-100" data-title="Complete Full-Stack Architecture">
-                  <img src="/api/placeholder/600/300" alt="DevOps Pipeline" class="gallery-image absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0" data-title="CI/CD Pipeline Visualization">
-                  <img src="/api/placeholder/600/300" alt="User Experience Flow" class="gallery-image absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0" data-title="User Experience Design Process">
+                  <img src="/github-actions.png" alt="DevOps Pipeline" class="gallery-image absolute inset-0 w-full h-full object-cover transition-opacity duration-500 opacity-0" data-title="CI/CD Pipeline Visualization">
                 </div>
                 <div class="absolute inset-0 bg-black/10 flex items-center justify-center opacity-0 hover:opacity-100 transition-opacity duration-300 cursor-pointer zoom-trigger">
                   <svg class="w-12 h-12 text-white drop-shadow-lg" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -368,95 +403,54 @@
           </p>
         </div>
 
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          <div class="bg-gradient-to-br from-emerald-50 to-emerald-100 dark:from-emerald-900/20 dark:to-emerald-800/20 p-8 rounded-xl border-l-4 border-emerald-500 scroll-fade">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-emerald-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                M
-              </div>
-              <div class="ml-4">
-                <h4 class="font-semibold text-gray-900 dark:text-white">Akil Attalki</h4>
-                <p class="text-sm text-gray-600 dark:text-gray-300">Education Director</p>
-              </div>
-            </div>
-            <blockquote class="text-gray-700 dark:text-gray-300 italic">
-              "Ajdin's approach to software architecture is exceptional. He doesn't just build functional systems—he creates experiences that teachers and students actually enjoy using. The registration system he built for our school has transformed how we manage enrollment."
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <!-- Jeffrey van Uunen -->
+          <div class="relative group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 p-8 scroll-fade paper-card">
+            <div class="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-24 h-4 bg-amber-300/70 rounded-sm shadow-sm rotate-[-2deg] group-hover:rotate-0 transition-transform duration-300" aria-hidden="true"></div>
+            <blockquote class="paper-quote relative pl-9 text-gray-800 dark:text-gray-100">
+              Ajdin combines clear architectural thinking with pragmatic delivery. He helped us translate complex operational needs into simple, reliable software our teams use every day.
             </blockquote>
+            <div class="mt-6 font-semibold text-gray-900 dark:text-gray-100">Jeffrey van Uunen</div>
+            <div class="text-sm text-gray-600 dark:text-gray-300">
+              Director at
+              <a href="https://procc.nl" target="_blank" rel="noopener" class="ml-1 text-emerald-700 dark:text-emerald-300 underline decoration-emerald-400 decoration-2 underline-offset-2 hover:text-emerald-600">ProCC</a>
+            </div>
           </div>
 
-          <div class="bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 p-8 rounded-xl border-l-4 border-blue-500 scroll-fade" style="animation-delay: 0.1s;">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                R
-              </div>
-              <div class="ml-4">
-                <h4 class="font-semibold text-gray-900 dark:text-white">Othman Sabir</h4>
-                <p class="text-sm text-gray-600 dark:text-gray-300">CEO at Swiply</p>
-              </div>
-            </div>
-            <blockquote class="text-gray-700 dark:text-gray-300 italic">
-              "The recruitment platform Ajdin developed revolutionized our hiring process. His focus on user experience made it incredibly intuitive for both recruiters and candidates. The intelligent matching algorithms are spot-on."
+          <!-- Othman Sabir -->
+          <div class="relative group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 p-8 scroll-fade paper-card" style="animation-delay: 0.1s;">
+            <div class="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-24 h-4 bg-amber-300/70 rounded-sm shadow-sm rotate-[-2deg] group-hover:rotate-0 transition-transform duration-300" aria-hidden="true"></div>
+            <blockquote class="paper-quote relative pl-9 text-gray-800 dark:text-gray-100">
+              From strategy to execution, Ajdin delivered a seamless platform with an exceptional user experience. His speed and quality raised the bar for our product.
             </blockquote>
+            <div class="mt-6 font-semibold text-gray-900 dark:text-gray-100">Othman Sabir</div>
+            <div class="text-sm text-gray-600 dark:text-gray-300">
+              CEO at
+              <a href="https://swiply.nl" target="_blank" rel="noopener" class="ml-1 text-emerald-700 dark:text-emerald-300 underline decoration-emerald-400 decoration-2 underline-offset-2 hover:text-emerald-600">Swiply B.V.</a>
+            </div>
           </div>
 
-          <div class="bg-gradient-to-br from-purple-50 to-purple-100 dark:from-purple-900/20 dark:to-purple-800/20 p-8 rounded-xl border-l-4 border-purple-500 scroll-fade" style="animation-delay: 0.2s;">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-purple-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                S
-              </div>
-              <div class="ml-4">
-                <h4 class="font-semibold text-gray-900 dark:text-white">Sarah Williams</h4>
-                <p class="text-sm text-gray-600 dark:text-gray-300">Operations Manager</p>
-              </div>
-            </div>
-            <blockquote class="text-gray-700 dark:text-gray-300 italic">
-              "Working with Ajdin was a game-changer. His comprehensive approach—from database design to deployment—meant we had a complete solution that just works. The automated scheduling system has saved us countless hours."
+          <!-- Akil Attalki -->
+          <div class="relative group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 p-8 scroll-fade paper-card" style="animation-delay: 0.2s;">
+            <div class="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-24 h-4 bg-amber-300/70 rounded-sm shadow-sm rotate-[-2deg] group-hover:rotate-0 transition-transform duration-300" aria-hidden="true"></div>
+            <blockquote class="paper-quote relative pl-9 text-gray-800 dark:text-gray-100">
+              Thoughtful design and reliable engineering. Ajdin made complex workflows intuitive for our teachers and students, and the system has been rock solid.
             </blockquote>
+            <div class="mt-6 font-semibold text-gray-900 dark:text-gray-100">Akil Attalki</div>
+            <div class="text-sm text-gray-600 dark:text-gray-300">Teacher &amp; Entrepreneur</div>
           </div>
 
-          <div class="bg-gradient-to-br from-orange-50 to-orange-100 dark:from-orange-900/20 dark:to-orange-800/20 p-8 rounded-xl border-l-4 border-orange-500 scroll-fade" style="animation-delay: 0.3s;">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                T
-              </div>
-              <div class="ml-4">
-                <h4 class="font-semibold text-gray-900 dark:text-white">Thomas van Berg</h4>
-                <p class="text-sm text-gray-600 dark:text-gray-300">Farm Operations Director</p>
-              </div>
-            </div>
-            <blockquote class="text-gray-700 dark:text-gray-300 italic">
-              "The cultivation tracking system Ajdin built for our horticulture operations is remarkable. He understood our complex workflows and translated them into an intuitive digital experience. Highly recommended!"
+          <!-- Ali Dogan -->
+          <div class="relative group bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl shadow-md hover:shadow-2xl hover:-translate-y-0.5 transition-all duration-300 p-8 scroll-fade paper-card" style="animation-delay: 0.3s;">
+            <div class="pointer-events-none absolute -top-2 left-1/2 -translate-x-1/2 w-24 h-4 bg-amber-300/70 rounded-sm shadow-sm rotate-[-2deg] group-hover:rotate-0 transition-transform duration-300" aria-hidden="true"></div>
+            <blockquote class="paper-quote relative pl-9 text-gray-800 dark:text-gray-100">
+              Collaborative, detail-oriented, and dependable. Working with Ajdin at ProCC, I could always trust him to find the right balance between UX and maintainable code.
             </blockquote>
-          </div>
-
-          <div class="bg-gradient-to-br from-teal-50 to-teal-100 dark:from-teal-900/20 dark:to-teal-800/20 p-8 rounded-xl border-l-4 border-teal-500 scroll-fade" style="animation-delay: 0.4s;">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                L
-              </div>
-              <div class="ml-4">
-                <h4 class="font-semibold text-gray-900 dark:text-white">Lisa Anderson</h4>
-                <p class="text-sm text-gray-600 dark:text-gray-300">Frontend Developer</p>
-              </div>
+            <div class="mt-6 font-semibold text-gray-900 dark:text-gray-100">Ali Dogan</div>
+            <div class="text-sm text-gray-600 dark:text-gray-300">
+              Past Colleague at
+              <a href="https://procc.nl" target="_blank" rel="noopener" class="ml-1 text-emerald-700 dark:text-emerald-300 underline decoration-emerald-400 decoration-2 underline-offset-2 hover:text-emerald-600">ProCC</a>
             </div>
-            <blockquote class="text-gray-700 dark:text-gray-300 italic">
-              "Ajdin's component libraries are incredibly well-designed and documented. His attention to detail and focus on developer experience makes working with his code a pleasure. True craftsmanship."
-            </blockquote>
-          </div>
-
-          <div class="bg-gradient-to-br from-indigo-50 to-indigo-100 dark:from-indigo-900/20 dark:to-indigo-800/20 p-8 rounded-xl border-l-4 border-indigo-500 scroll-fade" style="animation-delay: 0.5s;">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-indigo-500 rounded-full flex items-center justify-center text-white font-bold text-lg">
-                D
-              </div>
-              <div class="ml-4">
-                <h4 class="font-semibold text-gray-900 dark:text-white">David Kumar</h4>
-                <p class="text-sm text-gray-600 dark:text-gray-300">CTO</p>
-              </div>
-            </div>
-            <blockquote class="text-gray-700 dark:text-gray-300 italic">
-              "Ajdin's architectural decisions consistently prove to be forward-thinking and scalable. His rare combination of technical expertise and user-focused design thinking sets him apart in the industry."
-            </blockquote>
           </div>
         </div>
       </div>
@@ -534,21 +528,22 @@
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
           </svg>
         </button>
+
+        <!-- Fixed position navigation arrows -->
+        <button id="modal-prev" class="fixed left-8 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors z-10">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        <button id="modal-next" class="fixed right-8 top-1/2 transform -translate-y-1/2 bg-black/50 hover:bg-black/70 text-white rounded-full p-3 transition-colors z-10">
+          <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+
         <div class="relative bg-white dark:bg-gray-800 rounded-lg overflow-hidden shadow-2xl">
           <div class="relative">
             <img id="modal-image" src="" alt="" class="max-w-full max-h-[80vh] w-auto h-auto">
-            <div class="absolute inset-0 flex items-center justify-between p-4">
-              <button id="modal-prev" class="bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
-                </svg>
-              </button>
-              <button id="modal-next" class="bg-black/50 hover:bg-black/70 text-white rounded-full p-2 transition-colors">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-                </svg>
-              </button>
-            </div>
           </div>
           <div class="p-4 border-t border-gray-200 dark:border-gray-700">
             <h3 id="modal-title" class="text-lg font-semibold text-gray-900 dark:text-white mb-2"></h3>
