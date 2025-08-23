@@ -1,0 +1,28 @@
+# Node
+node_modules
+npm-debug.log*
+yarn-error.log*
+.pnpm-store
+
+# Builds
+/dist
+/.vite
+.vite-cache
+
+# VCS
+.git
+.gitignore
+.gitattributes
+.github/
+
+# OS / editor
+.DS_Store
+*.swp
+*.swo
+.idea/
+.vscode/
+
+# Docker
+Dockerfile*
+docker-compose*.yml
+

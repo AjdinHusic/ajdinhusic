@@ -95,12 +95,6 @@ class ImageGallery {
     this.goToSlide(nextIndex);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  private prevSlide() {
-    const prevIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
-    this.goToSlide(prevIndex);
-  }
-
   private startAutoPlay() {
     this.autoPlayInterval = window.setInterval(() => {
       this.nextSlide();
